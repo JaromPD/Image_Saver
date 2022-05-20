@@ -26,20 +26,20 @@ fun createImage(): img{
 
 fun removeImage(images: MutableList<img>){
     /*
-     This function removes a image from the image list by it's name.
+     This function removes an image from the image list by its name.
      */
 
     // The image name is taken
     print("What is the name?: ")
-    val removal_name = readLine()
-
+    val removalName = readLine()
     // The function looks through all the names to find the matching name.
     for (image in images) {
-        if(image.get_name() == removal_name){
+        if(image.get_name() == removalName){
             // The image with the matching name's index is grabbed.
             val removalIndex = images.indexOf(image)
             // The image is removed
             images.removeAt(removalIndex)
+            break
         }
     }
 }
@@ -55,10 +55,10 @@ fun main() {
         // The menu is displayed.
         println("What would you like to do?\n 1. Add a new image\n 2. Display images\n 3. Remove image\n 4. Display image by name\n 5. Quit")
         print("> ")
-        // The menu descision is taken and directed to an action.
+        // The menu decision is taken and directed to an action.
         when(Integer.valueOf(readLine())){
             1-> {
-                // The newly created image instance is added to the images collection.
+                // The newly created image instance is added to the images' collection.
                 images += createImage()
             }
             2 -> {
@@ -74,10 +74,10 @@ fun main() {
             4 -> {
                 // The image name is taken.
                 print("What is the name?: ")
-                val display_name = readLine()
+                val displayName = readLine()
                 // The name is matched with the correct image in the list.
                 for (image in images) {
-                    if(image.get_name() == display_name){
+                    if(image.get_name() == displayName){
                         // That images info is displayed.
                         image.display_info()
                     }
